@@ -18,7 +18,7 @@ namespace CE02_Inheritance
         // Private field holding the newly created Course
         private Course _currentCourse;
         // Menu for main. 
-        private string[] _mainMenuArray = { "Create Course","Create Teacher","Add Students","Display"};
+        private string[] _mainMenuArray = { "Create Course","Create Teacher","Add Students","Display", "Exit" };
 
         
 
@@ -40,18 +40,36 @@ namespace CE02_Inheritance
                 mainMenu.DisplayMenu();
 
                 // Prompting user for input then saving the response
-                int menuItemSelection = Validate.MenuSelection($"Please enter your selection [1] - [{mainMenu.menuItemsCount}]", mainMenu.menuItemsCount);
-
-                // Testing that the above code works.
-                Console.WriteLine(menuItemSelection);
-                // Changing bool run for testing purposes
-                run = false;
-
-                // NEXT STEP - Add an Exit option.
-
-            }
+                int menuItemSelection = Validate.MenuSelection($"Please enter your selection [1] - [{mainMenu.menuItemsCount}]",
+                    mainMenu.menuItemsCount + 1);
 
 
-        }
+                // Running a switch and case to control Menu options
+                switch (menuItemSelection)
+                {
+                    case 1:
+                        mainMenu.CreateCourse();
+                        break;
+                    case 2:
+                        mainMenu.CreateTeacher();
+                        break;
+                    case 3:
+                        mainMenu.AddStudent();
+                        break;
+                    case 4:
+                        mainMenu.Display();
+                        break;
+                    case 5:
+                        run = false;
+                        break;
+                    default:
+                        UI.Separator();
+                        Console.WriteLine("Error - Issue with 'int selection' in MenuControllers.MainMenu");
+                        break;
+                }
+
+            } // End of While Loop
+
+        } // End of CoureManager Constructor
     }
 }

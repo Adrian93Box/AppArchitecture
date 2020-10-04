@@ -15,7 +15,7 @@ namespace CE02_Inheritance
         // Validate that the user has selected one of the list of provided options
         // This method will require a 'Message' to prompt the user for input, and an int resembling the ...
         // ... 'Amount of Menu Options' in the Menu the user is being prompted to choose from.
-        // This method will then return the number that will match the 'index' in the array that holds the Menu options.
+        // This method will then return the number that will match the chosen Menu option.
         public static int MenuSelection(string message, int optCount)
         {
             // Prompt user for selection
@@ -35,8 +35,8 @@ namespace CE02_Inheritance
                 int.TryParse(Console.ReadLine(), out userSelection);
             }
 
-            // Returning the number resembling where the selected menu option lies in the given array's index
-            return userSelection - 1;
+            // Returning the number matching the Menu Option
+            return userSelection;
         }
     }
 }
