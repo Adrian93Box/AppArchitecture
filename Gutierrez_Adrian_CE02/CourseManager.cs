@@ -43,21 +43,64 @@ namespace CE02_Inheritance
                 int menuItemSelection = Validate.MenuSelection($"Please enter your selection [1] - [{mainMenu.menuItemsCount}]",
                     mainMenu.menuItemsCount + 1);
 
-
+                Console.Clear();
                 // Running a switch and case to control Menu options
                 switch (menuItemSelection)
                 {
                     case 1:
-                        mainMenu.CreateCourse();
+                        _currentCourse = mainMenu.CreateCourse();
                         break;
                     case 2:
-                        mainMenu.CreateTeacher();
+                        // Validating that the course has already been created
+                        if (_currentCourse != null)
+                        {
+                            _currentCourse = mainMenu.CreateTeacher(_currentCourse);
+                        } else
+                        {
+                            Console.WriteLine("You must first Create a Course!");
+                            UI.Separator();
+                            Console.Write("Press any key to Return to Main Menu: _");
+                            Console.ReadKey();
+                        }
                         break;
                     case 3:
-                        mainMenu.AddStudent();
+                        // Validating that the course has already been created
+                        if (_currentCourse != null)
+                        {
+                            _currentCourse = mainMenu.AddStudent(_currentCourse);
+                        }
+                        else
+                        {
+                            Console.WriteLine("You must first Create a Course!");
+                            UI.Separator();
+                            Console.Write("Press any key to Return to Main Menu: _");
+                            Console.ReadKey();
+                        }
                         break;
                     case 4:
-                        mainMenu.Display();
+                        // Validating that the course has already been created
+                        if (_currentCourse != null)
+                        {
+                            // Validating that the course contains all neccessary info to display
+                            if (_currentCourse.Teacher == null || _currentCourse.Students[0] == null)
+                            {
+                                Console.WriteLine("You must first enter a Teacher and Students to see Course info!");
+                                UI.Separator();
+                                Console.Write("Press any key to Return to Main Menu: _");
+                                Console.ReadKey();
+                            } else
+                            {
+                                mainMenu.Display(_currentCourse);
+                            }
+                            
+                        }
+                        else 
+                        {
+                            Console.WriteLine("You must first Create a Course!");
+                            UI.Separator();
+                            Console.Write("Press any key to Return to Main Menu: _");
+                            Console.ReadKey();
+                        }
                         break;
                     case 5:
                         run = false;

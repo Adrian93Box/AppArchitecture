@@ -15,7 +15,7 @@ namespace CE02_Inheritance
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Course Tracker");
+            Console.WriteLine(message);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("===============================================\n");
         }

@@ -15,6 +15,9 @@ namespace CE02_Inheritance
         // An integer for the Student’s grade
         private int _grade;
 
+        // Adding a Property
+        public int Grade { get { return _grade; } }
+
         // Constructor
         // The constructor uses a parameter to fill the grade field in the class
         // This constructor can take other parameters as well ...

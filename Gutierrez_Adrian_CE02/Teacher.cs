@@ -16,6 +16,9 @@ namespace CE02_Inheritance
         // ... Could be skills they have or something else a teacher would have.
         private string[] _educationTopics;
 
+        // Properties
+        public string[] EducationTopics { get { return _educationTopics; } }
+
         // Constructor
         // The constructor uses a parameter to fill the knowledge array in the class
         // This constructor can take other parameters as well ...

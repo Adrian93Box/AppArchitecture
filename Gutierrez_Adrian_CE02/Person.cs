@@ -19,6 +19,11 @@ namespace CE02_Inheritance
         // an int for the person’s age.
         private int _age;
 
+        // Properties
+        public string Name { get { return _name; } }
+        public string Descr { get { return _descr; } }
+        public int Age { get { return _age; } }
+
         // Constructor
         // Uses parameters to fill out all of its fields with the values entered by the user.
         public Person(string name, string descr, int age)
