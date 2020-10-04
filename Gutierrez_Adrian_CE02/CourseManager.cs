@@ -8,19 +8,48 @@
 using System;
 namespace CE02_Inheritance
 {
-    // CourseManager Class - This class will hold the code controlling most of your application ...
+    // - CourseManager Class - This class will hold the code controlling most of your application ...
     // ... (to Program)
     public class CourseManager
     {
-        // Before anything else you will need a Course variable to use for the currentCourse.
-        // Temperarily using the var type 'var' until I know how this variable will be used.
-        var currentCourse;
+        // Variables
 
+        // - Before anything else you will need a Course variable to use for the currentCourse.
+        // Private field holding the newly created Course
+        private Course _currentCourse;
+        // Menu for main. 
+        private string[] _mainMenuArray = { "Create Course","Create Teacher","Add Students","Display"};
 
+        
+
+        // Constructor
         public CourseManager()
         {
+            // Variables
+            Menu mainMenu = new Menu(_mainMenuArray);
+            // A boolean that will continue true until the user decides to exit
+            bool run = true;
 
+            // - Program should run until the user chooses to exit.
+            while (run)
+            {
+                // Setting up header
+                UI.Header("Course Tracker");
 
+                // Display Main Menu
+                mainMenu.DisplayMenu();
+
+                // Prompting user for input then saving the response
+                int menuItemSelection = Validate.MenuSelection($"Please enter your selection [1] - [{mainMenu.menuItemsCount}]", mainMenu.menuItemsCount);
+
+                // Testing that the above code works.
+                Console.WriteLine(menuItemSelection);
+                // Changing bool run for testing purposes
+                run = false;
+
+                // NEXT STEP - Add an Exit option.
+
+            }
 
 
         }

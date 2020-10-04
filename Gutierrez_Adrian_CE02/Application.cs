@@ -10,13 +10,6 @@ namespace CE02_Inheritance
 {
     public class Application
     {
-        public Application()
-        {
-        }
-
-        // (From Menu)
-        // The menu must have the following options: (Operations)
-
         // Prompt the user for the information needed to create a new Course object and assign ...
         // ... that object to the currentCourse variable.
         private void CreateCourse()

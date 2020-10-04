@@ -39,6 +39,8 @@
     <Compile Include="Course.cs" />
     <Compile Include="Application.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="Validate.cs" />
+    <Compile Include="UI.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
