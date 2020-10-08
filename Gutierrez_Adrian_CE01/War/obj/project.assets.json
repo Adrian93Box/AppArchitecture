@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/War/War/War.csproj",
+      "projectUniqueName": "/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/Gutierrez_Adrian_CE01/War/War.csproj",
       "projectName": "War",
-      "projectPath": "/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/War/War/War.csproj",
+      "projectPath": "/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/Gutierrez_Adrian_CE01/War/War.csproj",
       "packagesPath": "/Users/gutierrezhomefolder/.nuget/packages/",
-      "outputPath": "/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/War/War/obj/",
+      "outputPath": "/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/Gutierrez_Adrian_CE01/War/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/gutierrezhomefolder/.config/NuGet/NuGet.Config"

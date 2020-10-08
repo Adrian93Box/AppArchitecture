@@ -46,3 +46,15 @@
 /Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/War/War/obj/Debug/netcoreapp3.1/War.dll
 /Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/War/War/obj/Debug/netcoreapp3.1/War.pdb
 /Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/War/War/obj/Debug/netcoreapp3.1/War.genruntimeconfig.cache
+/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/Gutierrez_Adrian_CE01/War/bin/Debug/netcoreapp3.1/War.deps.json
+/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/Gutierrez_Adrian_CE01/War/bin/Debug/netcoreapp3.1/War.runtimeconfig.json
+/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/Gutierrez_Adrian_CE01/War/bin/Debug/netcoreapp3.1/War.runtimeconfig.dev.json
+/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/Gutierrez_Adrian_CE01/War/bin/Debug/netcoreapp3.1/War.dll
+/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/Gutierrez_Adrian_CE01/War/bin/Debug/netcoreapp3.1/War.pdb
+/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/Gutierrez_Adrian_CE01/War/obj/Debug/netcoreapp3.1/War.csprojAssemblyReference.cache
+/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/Gutierrez_Adrian_CE01/War/obj/Debug/netcoreapp3.1/War.AssemblyInfoInputs.cache
+/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/Gutierrez_Adrian_CE01/War/obj/Debug/netcoreapp3.1/War.AssemblyInfo.cs
+/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/Gutierrez_Adrian_CE01/War/obj/Debug/netcoreapp3.1/War.csproj.CoreCompileInputs.cache
+/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/Gutierrez_Adrian_CE01/War/obj/Debug/netcoreapp3.1/War.dll
+/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/Gutierrez_Adrian_CE01/War/obj/Debug/netcoreapp3.1/War.pdb
+/Users/gutierrezhomefolder/Documents/School Work/APA/AppArchitecture/Gutierrez_Adrian_CE01/War/obj/Debug/netcoreapp3.1/War.genruntimeconfig.cache
