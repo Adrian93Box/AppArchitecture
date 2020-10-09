@@ -1,0 +1,3 @@
+﻿Derek|123 Virginia st.|40|20
+Ana|400 Seashell ln.|45|22
+Kristy|616 Argentina Ave.|42|18

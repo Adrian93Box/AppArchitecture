@@ -43,5 +43,8 @@
     <Compile Include="Validate.cs" />
     <Compile Include="UI.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="employees.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

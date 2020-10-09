@@ -32,11 +32,21 @@ namespace Gutierrez_Adrian_CE03
 
 
 
+        // Prompt formatting
+        public static void Prompt(string message)
+        {
+            Console.WriteLine("\n-------------------------------");
+            Console.Write($"{message}: _");
+        }
+
+
+
+
         // Alert formating for consistancy
         public static void Alert(string message)
         {
             Console.WriteLine("\n-------------------------------");
-            Console.WriteLine($"ALERT - {message} _");
+            Console.Write($"ALERT - {message}: _");
         }
 
 
