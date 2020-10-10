@@ -124,10 +124,17 @@ namespace Gutierrez_Adrian_CE03
             // Getting user's selection and subtracting 1 to remove the correct index value from employees
             int selection = Validate.Range("Please enter an employee's number you would like to delete:", 1, employees.Count) - 1;
 
+            // saving name for notification use before it is deleted
+            // (I could've just put the writeline here but i want my code to be accurate)
+            string empName = employees[selection].Name;
+
+            // Removing employee
             employees.RemoveAt(selection);
 
+            // Notifying user
+            UI.Alert($"{empName} was succesfully removed!");
+            UI.Footer("Press any key to continue:");
             return employees;
-
         }
 
         // Display Payroll

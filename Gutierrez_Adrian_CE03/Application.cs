@@ -137,15 +137,6 @@ namespace Gutierrez_Adrian_CE03
                         
                     }
 
-                    // FOR PROGRESS CHECK ONLY
-                    UI.Alert($"You have succesfully loaded employees from your txt file in path: {_ioPath}");
-                    foreach (Employee emp in _employees)
-                    {
-                        Console.WriteLine(emp.Name);
-                    }
-                    UI.Footer("Press any key to continue");
-                    // END OF PROGRESS CHECK
-
                 }
             } else
             {
@@ -177,36 +168,15 @@ namespace Gutierrez_Adrian_CE03
                         if (employee is Hourly)
                         {
                             sw.WriteLine($"{employee.Name}|{employee.Address}|{((Hourly)employee).PayPerHour}|{((Hourly)employee).HoursPerWeek}|0|0");
-
-                            // TESTING PURPOSES
-                            if (((Hourly)employee).HoursPerWeek < 40)
-                            {
-                                UI.Alert("A part time employee was saved!");
-                                UI.Footer("Press any key to continue");
-                            } else
-                            {
-                                UI.Alert("An full time employee was saved!");
-                                UI.Footer("Press any key to continue");
-                            }
-
-
                         } else if (employee is Manager)
                         {
                             sw.WriteLine($"{employee.Name}|{employee.Address}|0|0|{((Manager)employee).Salary}|{((Manager)employee).Bonus}");
-
-                            // TESTING PURPOSES
-                            UI.Alert("A Manager employee was saved!");
-                            UI.Footer("Press any key to continue");
                         } else
                         {
                             UI.Alert("(Error) An employee type was unrecognised! Could not save this type!");
                             UI.Footer("Press any key to continue");
                         }
                     }
-
-                    // FOR PROGRESS CHECK ONLY
-                    UI.Alert($"You have succesfully saved employees to your txt file in path: {_ioPath}");
-                    Console.ReadKey();
                 }
 
 

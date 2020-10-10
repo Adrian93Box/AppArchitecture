@@ -36,7 +36,7 @@ namespace Gutierrez_Adrian_CE03
         public static void Prompt(string message)
         {
             Console.WriteLine("\n-------------------------------");
-            Console.Write($"{message}: _");
+            Console.Write($"{message} _");
         }
 
 
