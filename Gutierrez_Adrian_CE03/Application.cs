@@ -26,30 +26,31 @@ namespace Gutierrez_Adrian_CE03
         // Constructor
         public Application()
         {
-            // ISSUE: Terminal gives very weird output and no errors to find anything wrong. Code looks ...
-            // ... perfectly fine as well. Simple and very straight forward.
-
-            // DEBUG: While debugging i tried the below commented out code. The below 'commented out' code will run 'Enter' ...
-            // ... everytime you click any key as if it were in a loop 'Enter 2' is never even hit...
-
-            // Console.WriteLine("Enter");
-            // Console.ReadKey();
-
             // Instantiating Main Menu
             _mainMenuObj = new Menu(_mainMenuArray);
-
-            // Console.WriteLine("Enter 2");
-            // Console.ReadKey();
-
 
             // The program will run until exited
             while (_run)
             {
                 UI.Header("Main Menu");
                 _mainMenuObj.DisplayMenu();
-                UI.Prompt("Enter your selection");
-                _userSelection = Console.ReadLine();
-                _run = false;
+
+                // - Selections can be make using an index 1,2,3 or by typing the associated string like “add employee”.
+                // I will go with the strings this time since i did the numeric way in CE02.
+                _userSelection = Validate.MenuSelection("Type your selection", _mainMenuObj.MenuOptions);
+
+                // Checking to see if the program should exit before any further computing
+                if (_userSelection == "exit")
+                {
+                    _run = false;
+                } else
+                {
+                    // Will place call for switch and case here
+                    // Temp Write Line
+                    Console.WriteLine("You selected: " + _userSelection);
+                    Console.ReadKey();
+                }
+
             }
 
 

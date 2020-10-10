@@ -46,7 +46,8 @@ namespace Gutierrez_Adrian_CE03
         public static void Alert(string message)
         {
             Console.WriteLine("\n-------------------------------");
-            Console.Write($"ALERT - {message}: _");
+            Console.WriteLine($"ALERT - {message}");
+            Console.WriteLine("-------------------------------");
         }
 
 

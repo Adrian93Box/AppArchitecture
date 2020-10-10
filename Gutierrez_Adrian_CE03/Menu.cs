@@ -7,22 +7,15 @@
 using System;
 namespace Gutierrez_Adrian_CE03
 {
-    public class Menu : Application
+    class Menu : MenuController
     {
-        // This Menu is simply an array of strings. It takes in an array of strings and has a ...
-        // ... method to display them one by one.
 
-        // Menu String Array holding options making this Menu class as reusable as possible
-        private static string[] _menuOptions;
-
-        // Holds how many items/options this Menu has to select from. (Private for now)
-        private int menuItemsCount;
+        public string[] MenuOptions { get; set; }
 
         // Constructor
         public Menu(string[] menuOptions)
         {
-            _menuOptions = menuOptions;
-            menuItemsCount = _menuOptions.Length;
+            MenuOptions = menuOptions;
         }
 
 
@@ -30,9 +23,9 @@ namespace Gutierrez_Adrian_CE03
         public void DisplayMenu()
         {
             int i = 1;
-            foreach (string menuOption in _menuOptions)
+            foreach (string menuOption in MenuOptions)
             {
-                Console.WriteLine($"[{i}] {menuOption}");
+                Console.WriteLine(menuOption);
                 i++;
             }
         }

@@ -42,9 +42,7 @@
     <Compile Include="Menu.cs" />
     <Compile Include="Validate.cs" />
     <Compile Include="UI.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="employees.txt" />
+    <Compile Include="MenuController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
