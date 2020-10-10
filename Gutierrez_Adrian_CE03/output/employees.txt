@@ -4,3 +4,4 @@ Kristy|616 Argentina Ave.|0|0|60000|5000
 Adrian|41 Mantaray st.|20|40|0|0
 Anthony|400 Flipflop ln.|33|28|0|0
 Kujo|123 Death st.|100|40|0|0
+Keren|42 8th st.|0|0|100000|10000

@@ -67,7 +67,10 @@ namespace Gutierrez_Adrian_CE03
                     UI.Footer("Press any key to continue:");
                     break;
                 case "manager":
-                    
+                    Manager manager = AddManager();
+                    employees.Add(manager);
+                    UI.Alert($"Manager: {manager.Name}, added!");
+                    UI.Footer("Press any key to continue:");
                     break;
             }
 
@@ -147,7 +150,18 @@ namespace Gutierrez_Adrian_CE03
             return ptEmp;
         }
 
+        public Manager AddManager()
+        {
+            UI.Header("Manager info");
+            string name = Validate.String("Please enter the employee's name:");
+            string address = Validate.String($"Please enter {name}'s address:");
+            decimal salary = Validate.Decimal($"Please enter {name}'s annual salary:", 20000);
+            decimal bonus = Validate.Decimal($"Please enter the amount of bonus {name} will receive:", 1);
 
+            Manager manager = new Manager(name, address, salary, bonus);
+
+            return manager;
+        }
 
     }
 }
