@@ -13,6 +13,8 @@ namespace Gutierrez_Adrian_CE03
         protected string _name;
         protected string _address;
 
+        public string Name { get { return _name; } }
+
         // - Employee needs a constructor that takes parameters for name and address
         public Employee(string name, string address)
         {

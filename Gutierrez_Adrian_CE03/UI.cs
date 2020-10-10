@@ -13,7 +13,7 @@ namespace Gutierrez_Adrian_CE03
         // Header for the Menu
         public static void Header(string message)
         {
-            Console.Clear();
+            // Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(message);
             Console.ForegroundColor = ConsoleColor.White;
