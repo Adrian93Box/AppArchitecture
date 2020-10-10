@@ -14,6 +14,10 @@ namespace Gutierrez_Adrian_CE03
         protected decimal _payPerHour;
         protected decimal _hoursPerWeek;
 
+        // properties
+        public decimal PayPerHour { get { return _payPerHour; } }
+        public decimal HoursPerWeek { get { return _hoursPerWeek; } }
+
         // - Hourly needs a constructor that takes parameters for name, address, payPerHour, and hoursPerWeek.
         // -- Name and address need to be passed to the Hourly’s parent constructor.
         public Hourly(string name, string address, decimal pph, decimal hpw) : base ( name, address )

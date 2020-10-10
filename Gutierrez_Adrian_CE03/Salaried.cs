@@ -13,6 +13,9 @@ namespace Gutierrez_Adrian_CE03
         // - ... and contains a decimal field for salary.
         private decimal _salary;
 
+        // Properties
+        public decimal Salary { get { return _salary; } }
+
         // - Salaried needs a constructor that takes name, address, and salary
         public Salaried(string name, string address, decimal salary) : base ( name, address )
         {

@@ -32,15 +32,15 @@ namespace Gutierrez_Adrian_CE03
         // Constructor
         public Application()
         {
-            // Load employees from txt file entitled: employees.txt in the output folder for this project
-            Load();
-
             // Instantiating Main Menu
             Menu mainMenu = new Menu(_mainMenuArray);
 
             // The program will run until exited
             while (_run)
             {
+                // Load employees from txt file entitled: employees.txt in the output folder for this project
+                Load();
+
                 UI.Header("Main Menu");
                 mainMenu.DisplayMenu();
 
@@ -55,7 +55,8 @@ namespace Gutierrez_Adrian_CE03
                 } else
                 {
                     // Running the operator for Main Menu
-                    mainMenu.MainMenuOperator(_userSelection, _employees);
+                    _employees = mainMenu.MainMenuOperator(_userSelection, _employees);
+                    Save();
                 }
 
             }
@@ -70,13 +71,14 @@ namespace Gutierrez_Adrian_CE03
 
 
         // The following method will load all employees from the txt file and save them into '_employees'
+        // This load function is smart enough to detemine the difference between Fulltime, Parttime, and Manager employees
         private static void Load()
         {
             // - The text file should be checked if it exists and then loaded when the assignment executes.
             if (File.Exists(_ioPath))
             {
                 // Variables
-                FullTime employee;
+                Employee employee;
 
 
                 using (StreamReader sr = new StreamReader(_ioPath))
@@ -90,31 +92,126 @@ namespace Gutierrez_Adrian_CE03
                         // Spliting line at '|' and saving seperate string into a temp string array
                         lineSplit = line.Split('|');
 
-                        // Creating a full time employee with newly obtained info
-                        // (The info will be validated before being saved, therefore no need for further validation)
-                        employee = new FullTime(lineSplit[0], lineSplit[1], decimal.Parse(lineSplit[2]), decimal.Parse(lineSplit[3]));
+                        // The following conditional will run through all employees in the employees.txt and load them according to their ...
+                        // ... types. (Fulltime, PartTime, and Manager)
 
-                        // Adding employee to list: '_employees'
-                        _employees.Add(employee);
+                        // Differentiating between manager and hourly
+                        if (decimal.Parse(lineSplit[3]) != 0)
+                        {
+
+                            // Differentiating between Fulltime and Parttime
+                            if (decimal.Parse(lineSplit[3]) < 40)
+                            {
+                                // Creating a Parttime employee with newly obtained info
+                                // (The info will be validated before being saved, therefore no need for further validation)
+                                employee = new PartTime(lineSplit[0], lineSplit[1], decimal.Parse(lineSplit[2]), decimal.Parse(lineSplit[3]));
+
+                                // Adding employee to list: '_employees'
+                                _employees.Add(employee);
+                            }
+                            else
+                            {
+                                // Creating a Fulltime employee with newly obtained info
+                                // (The info will be validated before being saved, therefore no need for further validation)
+                                employee = new FullTime(lineSplit[0], lineSplit[1], decimal.Parse(lineSplit[2]), decimal.Parse(lineSplit[3]));
+
+                                // Adding employee to list: '_employees'
+                                _employees.Add(employee);
+                            }
+
+                        } else
+                        {
+                            // Creating a Manager employee with newly obtained info
+                            // (The info will be validated before being saved, therefore no need for further validation)
+                            employee = new Manager(lineSplit[0], lineSplit[1], decimal.Parse(lineSplit[4]), decimal.Parse(lineSplit[5]));
+
+                            // Adding employee to list: '_employees'
+                            _employees.Add(employee);
+                        }
+
+
+                        
                     }
 
                     // FOR PROGRESS CHECK ONLY
-                    UI.Alert($"You have succesfully added employees from your txt file in path: {_ioPath}");
+                    UI.Alert($"You have succesfully loaded employees from your txt file in path: {_ioPath}");
                     foreach (Employee emp in _employees)
                     {
                         Console.WriteLine(emp.Name);
                     }
-                    UI.Separator();
-
+                    UI.Footer("Press any key to continue");
+                    // END OF PROGRESS CHECK
 
                 }
             } else
             {
-                UI.Alert("Your path file does not exist. No data was uploaded!");
+                UI.Alert("(Error) Your path file does not exist. No data was uploaded!");
+                UI.Footer("Press any key to continue");
             }
         }
 
 
+
+
+
+        // Save _employees to the txt file int the output folder entitled 'employees.txt'
+        // This save function is smart enough to detemine the difference between Fulltime, Parttime, and Manager employees
+        public static void Save()
+        {
+            // validating the file exists
+            if (File.Exists(_ioPath))
+            {
+
+                // Stream writer used for writing new content
+                using (StreamWriter sw = new StreamWriter(_ioPath))
+                {
+
+                    // The following loop will loop through all employees in the list '_employees' and save them according to their ...
+                    // ... types. (Fulltime, PartTime, and Manager)
+                    foreach(Employee employee in _employees)
+                    {
+                        if (employee is Hourly)
+                        {
+                            sw.WriteLine($"{employee.Name}|{employee.Address}|{((Hourly)employee).PayPerHour}|{((Hourly)employee).HoursPerWeek}|0|0");
+
+                            // TESTING PURPOSES
+                            if (((Hourly)employee).HoursPerWeek < 40)
+                            {
+                                UI.Alert("A part time employee was saved!");
+                                UI.Footer("Press any key to continue");
+                            } else
+                            {
+                                UI.Alert("An full time employee was saved!");
+                                UI.Footer("Press any key to continue");
+                            }
+
+
+                        } else if (employee is Manager)
+                        {
+                            sw.WriteLine($"{employee.Name}|{employee.Address}|0|0|{((Manager)employee).Salary}|{((Manager)employee).Bonus}");
+
+                            // TESTING PURPOSES
+                            UI.Alert("A Manager employee was saved!");
+                            UI.Footer("Press any key to continue");
+                        } else
+                        {
+                            UI.Alert("(Error) An employee type was unrecognised! Could not save this type!");
+                            UI.Footer("Press any key to continue");
+                        }
+                    }
+
+                    // FOR PROGRESS CHECK ONLY
+                    UI.Alert($"You have succesfully saved employees to your txt file in path: {_ioPath}");
+                    Console.ReadKey();
+                }
+
+
+            } else
+            {
+                UI.Alert("(Error) Your path file does not exist. No data was saved!");
+                UI.Footer("Press any key to continue");
+            }
+        }
 
     } // End Class
 }

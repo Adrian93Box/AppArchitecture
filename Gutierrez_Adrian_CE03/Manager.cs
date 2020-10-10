@@ -13,6 +13,9 @@ namespace Gutierrez_Adrian_CE03
         // - ...  with a decimal field for bonus.
         private decimal _bonus;
 
+        // Properties
+        public decimal Bonus { get { return _bonus; } }
+
         // - Manager needs a constructor that takes name, address, salary, and bonus.
         public Manager(string name, string address, decimal salary, decimal bonus) : base (name, address, salary)
         {

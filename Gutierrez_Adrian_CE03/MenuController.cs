@@ -17,12 +17,12 @@ namespace Gutierrez_Adrian_CE03
         // Operators
 
         // Operator for MainMenu
-        public void MainMenuOperator(string userSelection, List<Employee> employees)
+        public List<Employee> MainMenuOperator(string userSelection, List<Employee> employees)
         {
             switch (userSelection)
             {
                 case "add employee":
-                    AddEmployee();
+                    employees = AddEmployee(employees);
                     break;
                 case "remove employee":
                     RemoveEmployee();
@@ -31,6 +31,8 @@ namespace Gutierrez_Adrian_CE03
                     DisplayPayroll();
                     break;
             }
+
+            return employees;
         }
 
 
@@ -43,9 +45,12 @@ namespace Gutierrez_Adrian_CE03
 
 
         // Add Employee
-        public void AddEmployee()
+        public List<Employee> AddEmployee(List<Employee> employees)
         {
 
+
+
+            return employees;
         }
 
 
