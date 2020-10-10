@@ -9,17 +9,6 @@
       <File FileName="War/Program.cs" />
       <File FileName="War/Validate.cs" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="War" expanded="True">
-            <Node name="War" expanded="True">
-              <Node name="WarApp.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
