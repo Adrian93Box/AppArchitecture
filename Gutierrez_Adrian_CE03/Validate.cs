@@ -49,13 +49,13 @@ namespace Gutierrez_Adrian_CE03
         // Validate that the user typed in a string and return the validated string.
         public static string String(string message)
         {
-            Console.Write(message + " _");
+            UI.Prompt(message);
             string userInput = Console.ReadLine();
 
             while (string.IsNullOrWhiteSpace(userInput))
             {
                 UI.Alert("You may not leave this blank!");
-                Console.Write(message + " _");
+                UI.Prompt(message);
                 userInput = Console.ReadLine();
             }
 
@@ -74,18 +74,40 @@ namespace Gutierrez_Adrian_CE03
             // Variable
             decimal userInputInt;
 
-            Console.Write(message + " _");
+            UI.Prompt(message);
             string userInput = Console.ReadLine();
 
             while (!decimal.TryParse(userInput, out userInputInt) || userInputInt < min)
             {
                 UI.Alert($"You did not enter a valid number equal to or greater than {min}!");
-                Console.Write(message + " _");
+                UI.Prompt(message);
                 userInput = Console.ReadLine();
             }
 
             return userInputInt;
         }
 
+
+
+
+
+
+        // Range of number the user may choose from, returns the number
+        public static int Range(string message, int min, int max)
+        {
+            UI.Prompt(message);
+            string response = Console.ReadLine();
+            int responseInt;
+
+            // Validating selection
+            while (!int.TryParse(response, out responseInt) || responseInt < min || responseInt > max)
+            {
+                UI.Alert($"You did not enter a valid number between {min} and {max}!");
+                UI.Prompt(message);
+                response = Console.ReadLine();
+            }
+
+            return responseInt;
+        }
     }
 }

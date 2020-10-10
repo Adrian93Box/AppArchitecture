@@ -39,7 +39,7 @@ namespace Gutierrez_Adrian_CE03
                     employees = AddEmployee(employees);
                     break;
                 case "remove employee":
-                    RemoveEmployee();
+                    RemoveEmployee(employees);
                     break;
                 case "display payroll":
                     DisplayPayroll();
@@ -106,8 +106,27 @@ namespace Gutierrez_Adrian_CE03
         }
 
         // Remove Employee
-        public void RemoveEmployee()
+        public List<Employee> RemoveEmployee(List<Employee> employees)
         {
+            // Variables
+            int i = 1;
+
+            // Display header
+            UI.Header("Remove Employee");
+
+            // Display employees
+            foreach (Employee employee in employees)
+            {
+                Console.WriteLine($"[{i}] {employee.Name}");
+                i++;
+            }
+
+            // Getting user's selection and subtracting 1 to remove the correct index value from employees
+            int selection = Validate.Range("Please enter an employee's number you would like to delete:", 1, employees.Count) - 1;
+
+            employees.RemoveAt(selection);
+
+            return employees;
 
         }
 
