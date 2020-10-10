@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.War PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="War/WarApp.cs">
     <Files>
-      <File FileName="War/WarApp.cs" Line="8" Column="1" />
+      <File FileName="War/WarApp.cs" Line="49" Column="1" />
       <File FileName="War/Player.cs" />
       <File FileName="War/Card.cs" />
       <File FileName="War/DeckUtility.cs" />
