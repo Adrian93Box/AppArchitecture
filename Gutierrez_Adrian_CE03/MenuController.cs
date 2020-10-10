@@ -61,7 +61,10 @@ namespace Gutierrez_Adrian_CE03
                     UI.Footer("Press any key to continue:");
                     break;
                 case "parttime":
-                    
+                    PartTime ptEmp = AddPartTimeEmp();
+                    employees.Add(ptEmp);
+                    UI.Alert($"Part time employee: {ptEmp.Name}, added!");
+                    UI.Footer("Press any key to continue:");
                     break;
                 case "manager":
                     
@@ -111,6 +114,12 @@ namespace Gutierrez_Adrian_CE03
 
         }
 
+
+
+
+
+
+
         // Add Employee - Functions///////////////////////////////
         public FullTime AddFullTimeEmp()
         {
@@ -124,5 +133,21 @@ namespace Gutierrez_Adrian_CE03
 
             return ftEmp;
         }
+
+        public PartTime AddPartTimeEmp()
+        {
+            UI.Header("Part Time Employee info");
+            string name = Validate.String("Please enter the employee's name:");
+            string address = Validate.String($"Please enter {name}'s address:");
+            decimal pph = Validate.Decimal($"Please enter {name}'s pay per hour:", 1);
+            decimal hpw = Validate.Decimal($"Please enter the amount of hours {name} works per week:", 1);
+
+            PartTime ptEmp = new PartTime(name, address, pph, hpw);
+
+            return ptEmp;
+        }
+
+
+
     }
 }

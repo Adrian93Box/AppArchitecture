@@ -68,6 +68,7 @@ namespace Gutierrez_Adrian_CE03
 
 
         // Validate that the user typed in a number and return the validated decimal.
+        // Accepts a message for instructions and an int for the minimum amount alowed.
         public static decimal Decimal(string message, int min)
         {
             // Variable
@@ -78,7 +79,7 @@ namespace Gutierrez_Adrian_CE03
 
             while (!decimal.TryParse(userInput, out userInputInt) || userInputInt < min)
             {
-                UI.Alert("You did not enter a valid number greater than 0!");
+                UI.Alert($"You did not enter a valid number equal to or greater than {min}!");
                 Console.Write(message + " _");
                 userInput = Console.ReadLine();
             }

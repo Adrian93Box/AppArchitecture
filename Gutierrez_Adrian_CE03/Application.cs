@@ -74,6 +74,10 @@ namespace Gutierrez_Adrian_CE03
         // This load function is smart enough to detemine the difference between Fulltime, Parttime, and Manager employees
         private static void Load()
         {
+
+            // ressetting List of employees
+            _employees = new List<Employee>();
+
             // - The text file should be checked if it exists and then loaded when the assignment executes.
             if (File.Exists(_ioPath))
             {
