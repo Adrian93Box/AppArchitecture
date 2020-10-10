@@ -1,3 +1,4 @@
 Derek|123 Virginia st.|20|40|0|0
 Ana|400 Seashell ln.|32|22|0|0
 Kristy|616 Argentina Ave.|0|0|60000|5000
+Adrian|41 Mantaray st.|20|40|0|0

@@ -41,5 +41,50 @@ namespace Gutierrez_Adrian_CE03
         }
 
 
+
+
+
+
+
+        // Validate that the user typed in a string and return the validated string.
+        public static string String(string message)
+        {
+            Console.Write(message + " _");
+            string userInput = Console.ReadLine();
+
+            while (string.IsNullOrWhiteSpace(userInput))
+            {
+                UI.Alert("You may not leave this blank!");
+                Console.Write(message + " _");
+                userInput = Console.ReadLine();
+            }
+
+            return userInput;
+        }
+
+
+
+
+
+
+        // Validate that the user typed in a number and return the validated decimal.
+        public static decimal Decimal(string message, int min)
+        {
+            // Variable
+            decimal userInputInt;
+
+            Console.Write(message + " _");
+            string userInput = Console.ReadLine();
+
+            while (!decimal.TryParse(userInput, out userInputInt) || userInputInt < min)
+            {
+                UI.Alert("You did not enter a valid number greater than 0!");
+                Console.Write(message + " _");
+                userInput = Console.ReadLine();
+            }
+
+            return userInputInt;
+        }
+
     }
 }

@@ -59,7 +59,7 @@ namespace Gutierrez_Adrian_CE03
         public static void Footer(string message)
         {
             Console.WriteLine("\n===============================================");
-            Console.WriteLine(message);
+            Console.Write(message + " _");
             Console.ReadKey();
         }
 
