@@ -10,18 +10,6 @@ namespace CE02_Inheritance
 {
     public class Course
     {
-        // Can you please help me by leaving me feedback in FSO after grading. I am writing here so I dont forget ...
-        // ... Thanks! :)
-
-
-        // Question 1 - What is the point of using fields in the way that i have them, if an auto (or regular) property ...
-        // ... replaces them perfectly? (Instructions say i must have the fields)
-
-        // Question 2 - I understand why you want us to use properties as opposed to public fields, (for future ease of change) ...
-        // but why would i keep the field and how would i protect it if its being mutated anyway?
-
-
-
         // Contains the following fields
         // a string for the course title
         private string _title;
