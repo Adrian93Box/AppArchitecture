@@ -25,5 +25,18 @@ namespace Gutierrez_Adrian_CE03
             _payPerHour = pph;
             _hoursPerWeek = hpw;
         }
+
+
+        public override decimal CalcPay()
+        {
+            decimal weeksPerYear = 52;
+
+            // Calculating pay for an entire year. Multiplying weekly pay by the amount of ...
+            // ... weeks in a year.
+            // (This will work only for Hourly type Employees)
+            decimal pay = (_payPerHour * _hoursPerWeek) * weeksPerYear;
+
+            return pay;
+        }
     }
 }

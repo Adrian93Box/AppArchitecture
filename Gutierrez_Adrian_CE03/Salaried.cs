@@ -11,7 +11,7 @@ namespace Gutierrez_Adrian_CE03
     abstract class Salaried : Employee 
     {
         // - ... and contains a decimal field for salary.
-        private decimal _salary;
+        protected decimal _salary;
 
         // Properties
         public decimal Salary { get { return _salary; } }

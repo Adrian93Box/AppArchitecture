@@ -42,7 +42,7 @@ namespace Gutierrez_Adrian_CE03
                     RemoveEmployee(employees);
                     break;
                 case "display payroll":
-                    DisplayPayroll();
+                    DisplayPayroll(employees);
                     break;
             }
 
@@ -114,33 +114,63 @@ namespace Gutierrez_Adrian_CE03
             // Display header
             UI.Header("Remove Employee");
 
-            // Display employees
-            foreach (Employee employee in employees)
+            if (employees.Count == 0)
             {
-                Console.WriteLine($"[{i}] {employee.Name}");
-                i++;
+                UI.Alert("You have no employee's to remove!");
+            }
+            else
+            {
+                // Display employees
+                foreach (Employee employee in employees)
+                {
+                    Console.WriteLine($"[{i}] {employee.Name}");
+                    i++;
+                }
+
+                // Getting user's selection and subtracting 1 to remove the correct index value from employees
+                int selection = Validate.Range("Please enter an employee's number you would like to delete:", 1, employees.Count) - 1;
+
+                // saving name for notification use before it is deleted
+                // (I could've just put the writeline here but i want my code to be accurate)
+                string empName = employees[selection].Name;
+
+                // Removing employee
+                employees.RemoveAt(selection);
+
+                // Notifying user
+                UI.Alert($"{empName} was succesfully removed!");
+                
             }
 
-            // Getting user's selection and subtracting 1 to remove the correct index value from employees
-            int selection = Validate.Range("Please enter an employee's number you would like to delete:", 1, employees.Count) - 1;
-
-            // saving name for notification use before it is deleted
-            // (I could've just put the writeline here but i want my code to be accurate)
-            string empName = employees[selection].Name;
-
-            // Removing employee
-            employees.RemoveAt(selection);
-
-            // Notifying user
-            UI.Alert($"{empName} was succesfully removed!");
             UI.Footer("Press any key to continue:");
+
             return employees;
         }
 
         // Display Payroll
-        public void DisplayPayroll()
+        public void DisplayPayroll(List<Employee> employees)
         {
+            // Variables
+            int i = 1;
+            UI.Header("Display Payroll");
 
+            if (employees.Count == 0)
+            {
+                UI.Alert("You must first add an Employee to display their info!");
+            }
+            else
+            {
+                // Displaying all employees
+                // SIDENOTE - I have no idea how you were able to display them the way you did in the video.
+                // I went with a different route since the instructions didn't specify.
+                foreach (Employee employee in employees)
+                {
+                    Console.WriteLine($"[{i}]  Name:\n     {employee.Name}\n\n     Address:\n     {employee.Address}\n\n     Pay:\n     {employee.CalcPay():C}\n");
+                    i++;
+                }
+            }
+
+            UI.Footer("Press any key to continue:");
         }
 
 
@@ -156,7 +186,7 @@ namespace Gutierrez_Adrian_CE03
             string name = Validate.String("Please enter the employee's name:");
             string address = Validate.String($"Please enter {name}'s address:");
             decimal pph = Validate.Decimal($"Please enter {name}'s pay per hour:", 40);
-            decimal hpw = Validate.Decimal($"Please enter the amount of hours {name} works per week:", 40);
+            decimal hpw = Validate.Decimal($"Full time employee's must work 40 or more hours.\nPlease enter the amount of hours {name} works per week:", 40);
 
             FullTime ftEmp = new FullTime(name, address, pph, hpw);
 
@@ -169,7 +199,7 @@ namespace Gutierrez_Adrian_CE03
             string name = Validate.String("Please enter the employee's name:");
             string address = Validate.String($"Please enter {name}'s address:");
             decimal pph = Validate.Decimal($"Please enter {name}'s pay per hour:", 1);
-            decimal hpw = Validate.Decimal($"Please enter the amount of hours {name} works per week:", 1);
+            decimal hpw = Validate.Range($"Part time employee's can only work less than 40 hours.\nPlease enter the amount of hours {name} works per week:", 1, 39);
 
             PartTime ptEmp = new PartTime(name, address, pph, hpw);
 

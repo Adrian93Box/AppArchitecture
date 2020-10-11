@@ -22,10 +22,10 @@ namespace Gutierrez_Adrian_CE03
             _bonus = bonus;
         }
 
-        // Overriding CalcPay as this will not work the same for a Manager as it does for an hourly Employee
-        protected override decimal CalcPay(decimal salary, decimal bonus)
+        // Overriding CalcPay from the Employee class
+        public override decimal CalcPay()
         {
-            return salary + bonus;
+            return _salary + _bonus;
         }
     }
 }

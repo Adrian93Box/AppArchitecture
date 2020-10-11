@@ -26,16 +26,12 @@ namespace Gutierrez_Adrian_CE03
 
 
         // - Employee must contain a virtual method CalculatePay
-        protected virtual decimal CalcPay(decimal pph, decimal hpw)
+        // This method will allow me to call it by using the object 'Employee' but its functionality will only be processed
+        // ... through the override methods in its subclasses
+        public virtual decimal CalcPay()
         {
-            decimal weeksPerYear = 52;
-
-            // Calculating pay for an entire year. Multiplying weekly pay by the amount of ...
-            // ... weeks in a year.
-            // (This will work only for Hourly type Employees)
-            decimal pay = (pph * hpw) * weeksPerYear;
-
-            return pay;
+            // place holder for the method's return.
+            return 0;
         }
 
     }

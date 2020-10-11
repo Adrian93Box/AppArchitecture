@@ -1,7 +1,6 @@
-Derek|123 Virginia st.|20|40|0|0
-Ana|400 Seashell ln.|32|22|0|0
-Kristy|616 Argentina Ave.|0|0|60000|5000
-Adrian|41 Mantaray st.|20|40|0|0
-Anthony|400 Flipflop ln.|33|28|0|0
-Kujo|123 Death st.|100|40|0|0
-Keren|42 8th st.|0|0|100000|10000
+Mickey Mouse|101 Magic Street|50|84|0|0
+Queen Elsa|105 Ice Castle|30|30|0|0
+Minnie Mouse|101 Magic street|50|56|0|0
+Walt Disney|100 History Ave.|0|0|1000000|1000000
+Donald Duck|105 Magic st.|40|30|0|0
+Goofy|103 Magic st.|45|45|0|0
