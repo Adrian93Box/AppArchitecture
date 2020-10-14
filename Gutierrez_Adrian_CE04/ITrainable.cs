@@ -16,7 +16,7 @@ namespace Gutierrez_Adrian_CE04
         Dictionary<string, string> Behaviors { get; set; }
 
         // This will determine wether or not the class implementing this interface is trainable.
-        bool Trainable { get; set; }
+        bool Trainable { get; }
 
         // - Perform
         // - Fetch the behavior from the Behaviors dictionary based on the signal.
