@@ -38,6 +38,12 @@
     <Compile Include="Validate.cs" />
     <Compile Include="UI.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="Application.cs" />
+    <Compile Include="Elephant.cs" />
+    <Compile Include="Monkey.cs" />
+    <Compile Include="Cat.cs" />
+    <Compile Include="Lion.cs" />
+    <Compile Include="Horse.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

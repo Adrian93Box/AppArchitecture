@@ -18,7 +18,7 @@ namespace Gutierrez_Adrian_CE04
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Application startApp = new Application();
         }
     }
 }

@@ -15,6 +15,9 @@ namespace Gutierrez_Adrian_CE04
         // - The value (a string) is the behavior the animal will perform when it sees the signal.
         Dictionary<string, string> Behaviors { get; set; }
 
+        // This will determine wether or not the class implementing this interface is trainable.
+        bool Trainable { get; set; }
+
         // - Perform
         // - Fetch the behavior from the Behaviors dictionary based on the signal.
         // - Should return a string describing how the animal performed the behavior in response to the signal.

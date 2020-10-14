@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace Gutierrez_Adrian_CE04
 {
-    class Gorilla : Animal, ITrainable
+    class Lion : Animal, ITrainable
     {
         // Variables
         // List holding behaviors
@@ -20,10 +20,10 @@ namespace Gutierrez_Adrian_CE04
 
         // Constructor
         // - The constructors will need to initialize the Species and Trainable properties as well as the _treat field.
-        public Gorilla()
+        public Lion()
         {
-            Species = "Gorilla";
-            _treat = "Banana";
+            Species = "Lion";
+            _treat = "antelope";
             Behaviors = new Dictionary<string, string>();
             Trainable = false;
         }
@@ -44,7 +44,7 @@ namespace Gutierrez_Adrian_CE04
         // - Should return a string describing how the animal has been trained and will respond to the specified signal.
         public string Train(string signal, string behavior)
         {
-            Behaviors.Add(signal,behavior);
+            Behaviors.Add(signal, behavior);
 
             return $"The {Species} learned to {behavior} when you make the {signal} signal.";
         }
@@ -53,7 +53,7 @@ namespace Gutierrez_Adrian_CE04
         // This method is overriding the associated method in the Animal Class
         public override string MakeNoise()
         {
-            return "Rawwwrrr! THUMP THUMP THUMP (Pounding Chest)";
+            return "Roooaaarrr!";
         }
     }
 }

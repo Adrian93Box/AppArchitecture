@@ -26,7 +26,6 @@ namespace Gutierrez_Adrian_CE04
         // CONSTRUCTOR 
         public Animal()
         {
-
         }
 
 
