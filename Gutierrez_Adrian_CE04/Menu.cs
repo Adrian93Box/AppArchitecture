@@ -9,6 +9,7 @@ namespace Gutierrez_Adrian_CE04
     public class Menu
     {
         public string[] MenuOptions { get; set; }
+        
 
         // Constructor
         public Menu(string[] menuOptions)

@@ -11,12 +11,11 @@ using System.Collections.Generic;
 
 namespace Gutierrez_Adrian_CE04
 {
-    class Gorilla : Animal, ITrainable
+    class Gorilla : Animal
     {
         // Variables
         // List holding behaviors
         public Dictionary<string, string> Behaviors { get; set; }
-        public bool Trainable { get; }
 
         // Constructor
         // - The constructors will need to initialize the Species and Trainable properties as well as the _treat field.
@@ -25,7 +24,6 @@ namespace Gutierrez_Adrian_CE04
             Species = "Gorilla";
             _treat = "Banana";
             Behaviors = new Dictionary<string, string>();
-            Trainable = false;
         }
 
         // - Perform

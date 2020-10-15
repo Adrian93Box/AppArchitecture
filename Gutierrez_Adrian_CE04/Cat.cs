@@ -16,7 +16,6 @@ namespace Gutierrez_Adrian_CE04
         // Variables
         // List holding behaviors
         public Dictionary<string, string> Behaviors { get; set; }
-        public bool Trainable { get; }
 
         // Constructor
         // - The constructors will need to initialize the Species and Trainable properties as well as the _treat field.
@@ -25,7 +24,6 @@ namespace Gutierrez_Adrian_CE04
             Species = "Cat";
             _treat = "Fish";
             Behaviors = new Dictionary<string, string>();
-            Trainable = true;
         }
 
         // - Perform

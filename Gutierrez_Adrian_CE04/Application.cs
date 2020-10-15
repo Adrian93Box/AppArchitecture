@@ -12,6 +12,7 @@ namespace Gutierrez_Adrian_CE04
     {
         // - A List object which will contain all the animals you create.
         private List<Animal> _animals = new List<Animal>();
+        private bool _run = true;
 
         // Instantiating Animal objects
         Gorilla kerchak = new Gorilla();
@@ -29,12 +30,60 @@ namespace Gutierrez_Adrian_CE04
             Welcome();
             // Creating the Main Menu using all Animal types from the list '_animals'
             Menu mainMenu = CreateMainMenu();
-            // Displaying the Main Menu
-            mainMenu.DisplayMenu();
-            // Adding the exit option to the end of the Menu
-            Console.WriteLine("\n[0] Exit Zoo");
-            // Prompting user for menu selection
-            int selection = Validate.Range("Please enter your selection by number:", 0, _animals.Count);
+            // Creating submenu
+            Menu subMenu = CreateSubMenu();
+            
+
+            // MAIN WHILE LOOP that runs the Program
+            while (_run)
+            {
+                // Displaying the Main Menu
+                mainMenu.DisplayMenu();
+                // Adding the exit option to the end of the Menu
+                Console.WriteLine("\n[0] Exit Zoo");
+                // Prompting user for menu selection
+                int selection = Validate.Range("Please enter your selection by number:", 0, _animals.Count);
+
+                // checking to see if the user would like to exit the program
+                if (selection == 0)
+                {
+                    _run = false;
+                }
+                else
+                {
+                    // Displaying what you have chosen
+                    UI.Alert($"You have chosen the {_animals[selection - 1].Species}");
+
+                    // Will run submenu until the user chooses another animal
+                    while (_run)
+                    {
+                        // Displaying sub menu
+                        subMenu.DisplayMenu();
+                        // Saving the count for the submenu's options
+                        int subMenuCount = subMenu.MenuOptions.Length;
+
+                        // getting users selection
+                        selection = Validate.Range("Please enter your selection by number:", 1, subMenuCount);
+
+                        // checking to see if the user would like to choose another animal
+                        if (selection == subMenuCount)
+                        {
+                            _run = false;
+                        } else
+                        {
+                            SubMenuController(selection);
+                        }
+                    }
+
+                    // Resetting _run to true so it works as expected with the main loop
+                    _run = true;
+                    
+
+
+                }
+            }
+
+
             
 
         }
@@ -44,12 +93,28 @@ namespace Gutierrez_Adrian_CE04
         public void Welcome()
         {
             // Welcome message
-            UI.Header("Welcome to Zookeeper!");
+            Console.WriteLine("Welcome to Zookeeper!");
+            UI.Separator();
 
             // Adding objects to the _animals list
             _animals = new List<Animal>() { kerchak, dumbo, abu, lucifer, simba, spirit };
 
         }
+
+
+
+        // This method creates the menu of options for animals
+        public Menu CreateSubMenu()
+        {
+            string[] menuOptions = { "Train the animal in a new behavior.", "Feed animal a treat.",
+                "Signal to the animal to perform a behavior", "Listen to the animal make a noise.", "Select a different animal." };
+
+            Menu menu = new Menu(menuOptions);
+
+            return menu;
+        }
+
+
 
         // This method gets the List of animals and uses their data to create the Main Menu
         // Then it returns the Main Menu as a Menu object
@@ -63,7 +128,17 @@ namespace Gutierrez_Adrian_CE04
             foreach (Animal animal in _animals)
             {
                 animalType = animal.Species;
-                animalSArray[counter] = animalType;
+
+
+                // If the Animal is trainable then this loop would add it
+                if (animal is ITrainable)
+                {
+                    animalSArray[counter] = animalType + " (Trainable)";
+                } else
+                {
+                    animalSArray[counter] = animalType;
+                }
+                
                 counter++;
             }
 
@@ -74,6 +149,29 @@ namespace Gutierrez_Adrian_CE04
         }
 
 
+
+
+
+        // The controller for the submenu
+        // Holds a switch and case inside to nav through the menu actions
+        public void SubMenuController(int selection)
+        {
+            switch (selection)
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                default:
+                    break;
+            }
+        }
 
     }
 }

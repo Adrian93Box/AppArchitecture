@@ -8,21 +8,10 @@ namespace Gutierrez_Adrian_CE04
 {
     public static class UI
     {
-        // Header for the Menu
-        public static void Header(string message)
-        {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(message);
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("===============================================\n");
-        }
-
-
         // Seperator for consistancy
         public static void Separator()
         {
-            Console.WriteLine("\n-------------------------------");
+            Console.WriteLine("-------------------------------\n");
         }
 
 
@@ -44,20 +33,8 @@ namespace Gutierrez_Adrian_CE04
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\n-------------------------------");
             Console.WriteLine($"ALERT - {message}");
-            Console.WriteLine("-------------------------------");
+            Console.WriteLine("-------------------------------\n");
             Console.ForegroundColor = ConsoleColor.White;
         }
-
-
-
-
-        // Footer
-        public static void Footer(string message)
-        {
-            Console.WriteLine("\n===============================================");
-            Console.Write(message + " _");
-            Console.ReadKey();
-        }
-
     }
 }
