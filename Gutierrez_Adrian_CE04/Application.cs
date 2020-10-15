@@ -13,6 +13,8 @@ namespace Gutierrez_Adrian_CE04
         // - A List object which will contain all the animals you create.
         private List<Animal> _animals = new List<Animal>();
         private bool _run = true;
+        // Temp variable holding the users selected animal
+        private Animal _chosenAnimal;
 
         // Instantiating Animal objects
         Gorilla kerchak = new Gorilla();
@@ -48,11 +50,14 @@ namespace Gutierrez_Adrian_CE04
                 if (selection == 0)
                 {
                     _run = false;
+                    UI.Alert("Goodbye!!");
                 }
                 else
                 {
+                    // Temp variable to save the animal that was chosen
+                    _chosenAnimal = _animals[selection - 1];
                     // Displaying what you have chosen
-                    UI.Alert($"You have chosen the {_animals[selection - 1].Species}");
+                    UI.Alert($"You have chosen the {_chosenAnimal.Species}");
 
                     // Will run submenu until the user chooses another animal
                     while (_run)
@@ -71,6 +76,7 @@ namespace Gutierrez_Adrian_CE04
                             _run = false;
                         } else
                         {
+                            // Calling the submenu controller and passing in the users selection as well as the current animal
                             SubMenuController(selection);
                         }
                     }
@@ -156,19 +162,37 @@ namespace Gutierrez_Adrian_CE04
         // Holds a switch and case inside to nav through the menu actions
         public void SubMenuController(int selection)
         {
+            
+
+            // Switching through the menu options according to the user's selection
             switch (selection)
             {
                 case 1:
+                    if (_animals[0] is ITrainable)
+                    {
+
+                    } else
+                    {
+                        UI.Alert($"The {_chosenAnimal.Species} is not Trainable!");
+                    }
                     break;
                 case 2:
                     break;
                 case 3:
+                    if (_animals[0] is ITrainable)
+                    {
+
+                    }
+                    else
+                    {
+                        UI.Alert($"The {_chosenAnimal.Species} is not Trainable!");
+                    }
                     break;
                 case 4:
-                    break;
-                case 5:
+                    UI.Alert(_chosenAnimal.MakeNoise());
                     break;
                 default:
+                    UI.Alert("An error has occured in the Submenu Controller");
                     break;
             }
         }
