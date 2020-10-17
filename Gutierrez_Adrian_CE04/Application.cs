@@ -168,20 +168,43 @@ namespace Gutierrez_Adrian_CE04
             switch (selection)
             {
                 case 1:
-                    if (_animals[0] is ITrainable)
+                    if (_chosenAnimal is ITrainable)
                     {
-
+                        // Prompting user to create a new behavior according to a signal
+                        string behavior = Validate.String($"What new behavior are you training the {_chosenAnimal.Species} to do?");
+                        string signal = Validate.String($"What signal will you use when asking the {_chosenAnimal.Species} to do" +
+                            $" this new behavior?");
+                        // saving input
+                        UI.Alert(((ITrainable)_chosenAnimal).Train(signal, behavior));
                     } else
                     {
                         UI.Alert($"The {_chosenAnimal.Species} is not Trainable!");
                     }
                     break;
                 case 2:
+                    _chosenAnimal.Eat();
                     break;
                 case 3:
-                    if (_animals[0] is ITrainable)
+                    if (_chosenAnimal is ITrainable)
                     {
-
+                        if (((ITrainable)_chosenAnimal).Behaviors.Count == 0)
+                        {
+                            UI.Alert($"The {_chosenAnimal.Species} has not yet been trained!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("\n-------------------------------");
+                            Console.Write("Signals:\n");
+                            // Searches all available keys and displays them like a menu
+                            foreach (string key in ((ITrainable)_chosenAnimal).Behaviors.Keys)
+                            {
+                                Console.WriteLine(key);
+                            }
+                            // getting signal through proper validation
+                            string signal = Validate.Key("Please enter your signal:", ((ITrainable)_chosenAnimal).Behaviors);
+                            // Displaying the performance
+                            UI.Alert(((ITrainable)_chosenAnimal).Perform(signal));
+                        }
                     }
                     else
                     {

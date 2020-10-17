@@ -38,8 +38,12 @@ namespace Gutierrez_Adrian_CE04
         // - It should return a string describing how the animal ate the food that looks like this: "The dolphin ate a herring”
         public string Eat()
         {
+            // Adding one to food eatin
             _foodConsumed++;
+            //Displaying the animal ate
+            UI.Alert($"The {Species} ate a {_treat}");
 
+            // Conditional to determine if the animal was full enough to poop.
             if (_foodConsumed == 4)
             {
                 _foodConsumed = 0;
@@ -65,7 +69,7 @@ namespace Gutierrez_Adrian_CE04
         // - This should write out to the console that the animal has pooped. For ex: "The dolphin pooped!”
         public void Poop()
         {
-            Console.WriteLine($"The {Species} pooped!");
+            UI.Alert($"The {Species} pooped!");
         }
 
     }
