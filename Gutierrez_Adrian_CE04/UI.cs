@@ -11,7 +11,7 @@ namespace Gutierrez_Adrian_CE04
         // Seperator for consistancy
         public static void Separator()
         {
-            Console.WriteLine("-------------------------------\n");
+            Console.WriteLine("-------------------------------");
         }
 
 
@@ -32,7 +32,19 @@ namespace Gutierrez_Adrian_CE04
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\n-------------------------------");
-            Console.WriteLine($"ALERT - {message}");
+            Console.WriteLine($"{message}");
+            Console.WriteLine("-------------------------------\n");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+
+
+        // Alert formating for consistancy
+        public static void Error(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\n-------------------------------");
+            Console.WriteLine($"ERROR - {message}");
             Console.WriteLine("-------------------------------\n");
             Console.ForegroundColor = ConsoleColor.White;
         }

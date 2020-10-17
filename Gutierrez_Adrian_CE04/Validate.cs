@@ -18,7 +18,7 @@ namespace Gutierrez_Adrian_CE04
 
             while (string.IsNullOrWhiteSpace(userInput))
             {
-                UI.Alert("You may not leave this blank!");
+                UI.Error("You may not leave this blank!");
                 UI.Prompt(message);
                 userInput = Console.ReadLine().ToLower();
             }
@@ -30,6 +30,7 @@ namespace Gutierrez_Adrian_CE04
         // Range of numbers the user may choose from, returns the number
         public static int Range(string message, int min, int max)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             UI.Prompt(message);
             string response = Console.ReadLine();
             int responseInt;
@@ -37,11 +38,14 @@ namespace Gutierrez_Adrian_CE04
             // Validating selection
             while (!int.TryParse(response, out responseInt) || responseInt < min || responseInt > max)
             {
-                UI.Alert($"You did not enter a valid number between {min} and {max}!");
+                UI.Error($"You did not enter a valid number between {min} and {max}!");
+                Console.ForegroundColor = ConsoleColor.Green;
                 UI.Prompt(message);
                 response = Console.ReadLine();
             }
 
+            UI.Separator();
+            Console.ForegroundColor = ConsoleColor.White;
             return responseInt;
         }
 
@@ -57,7 +61,7 @@ namespace Gutierrez_Adrian_CE04
             // no need to lower the casing in the conditional
             while (!dictionary.ContainsKey(signal))
             {
-                UI.Alert("This signal does not exist!");
+                UI.Error("This signal does not exist!");
                 UI.Prompt(message);
                 signal = Console.ReadLine().ToLower();
             }

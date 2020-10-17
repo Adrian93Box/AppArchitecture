@@ -178,7 +178,7 @@ namespace Gutierrez_Adrian_CE04
                         UI.Alert(((ITrainable)_chosenAnimal).Train(signal, behavior));
                     } else
                     {
-                        UI.Alert($"The {_chosenAnimal.Species} is not Trainable!");
+                        UI.Error($"The {_chosenAnimal.Species} is not Trainable!");
                     }
                     break;
                 case 2:
@@ -189,7 +189,7 @@ namespace Gutierrez_Adrian_CE04
                     {
                         if (((ITrainable)_chosenAnimal).Behaviors.Count == 0)
                         {
-                            UI.Alert($"The {_chosenAnimal.Species} has not yet been trained!");
+                            UI.Error($"The {_chosenAnimal.Species} has not yet been trained!");
                         }
                         else
                         {
@@ -208,14 +208,14 @@ namespace Gutierrez_Adrian_CE04
                     }
                     else
                     {
-                        UI.Alert($"The {_chosenAnimal.Species} is not Trainable!");
+                        UI.Error($"The {_chosenAnimal.Species} is not Trainable!");
                     }
                     break;
                 case 4:
                     UI.Alert(_chosenAnimal.MakeNoise());
                     break;
                 default:
-                    UI.Alert("An error has occured in the Submenu Controller");
+                    UI.Error("An error has occured in the Submenu Controller");
                     break;
             }
         }
