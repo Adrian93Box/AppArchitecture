@@ -11,56 +11,33 @@ namespace Gutierrez_Adrian_CE05
 {
     class API : APIFramework
     {
+        // Field
+        private dynamic json;
+
         // Constructor needed for APIFramework
-        public API(string url) : base(url) { }
-
-
-        // Gets title from json
-        public string GetTitle()
+        public API(string url) : base(url)
         {
-            dynamic json = GetJSON();
-
-            return json.Title;
+            // setting this api's json string to parsed json
+            json = GetJSON();
         }
 
-        // Gets release year from json
-        public string GetYear()
-        {
-            dynamic json = GetJSON();
 
-            return json.Year;
+        // Display the API's data on screen (preformatted for console - just run it)
+        public void DisplayData()
+        {
+            Console.Clear();
+            UI.Header("API data");
+            Console.WriteLine($"Title:\n\n   {GetTitle(json)}\n");
+            Console.WriteLine($"Year:\n\n   {GetYear(json)}\n");
+            Console.WriteLine($"Genre:\n\n   {GetGenre(json)}\n");
+            Console.WriteLine($"Director:\n\n   {GetDirector(json)}\n");
+            Console.WriteLine($"Rating:\n\n   {GetRating(json)}\n");
+            Console.WriteLine($"Plot:\n\n   {GetPlot(json)}\n");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            UI.Prompt("Press any key to continue:");
+            Console.ReadLine();
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
-        // Gets rating from json
-        public string GetRating()
-        {
-            dynamic json = GetJSON();
-
-            return json.Rated;
-        }
-
-        // Gets genre from json
-        public string GetGenre()
-        {
-            dynamic json = GetJSON();
-
-            return json.Genre;
-        }
-
-        // Gets director from json
-        public string GetDirector()
-        {
-            dynamic json = GetJSON();
-
-            return json.Director;
-        }
-
-        // Gets plot from json
-        public string GetPlot()
-        {
-            dynamic json = GetJSON();
-
-            return json.Plot;
-        }
     }
 }

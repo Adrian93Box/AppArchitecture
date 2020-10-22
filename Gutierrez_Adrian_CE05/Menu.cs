@@ -28,7 +28,7 @@ namespace Gutierrez_Adrian_CE05
             int i = 1;
             foreach (string menuOption in MenuOptions)
             {
-                Console.WriteLine($"[{i}] " + menuOption);
+                Console.WriteLine($"[{i}] {menuOption}");
                 i++;
             }
         }

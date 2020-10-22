@@ -29,7 +29,7 @@ namespace Gutierrez_Adrian_CE05
         // Constructor
         public Application()
         {
-            // Creating objects
+            // Instantiatin all available objects
             API justiceLeagueAPI = new API(_justiceLeagueURL);
             API avengersAPI = new API(_avengersURL);
             API ironmanAPI = new API(_ironmanURL);
@@ -41,19 +41,38 @@ namespace Gutierrez_Adrian_CE05
             API antmanAPI = new API(_antmanURL);
             API theDarkKnightAPI = new API(_theDarkKnightURL);
 
+            // Saving all API's into an array
+            API[] apiArray = {justiceLeagueAPI, avengersAPI, ironmanAPI, captainAmericaAPI, batmanVsSupermanAPI,
+            deadpoolAPI, venomAPI, hulkAPI, antmanAPI, theDarkKnightAPI};
 
-
+            // Instantiating the mainMenu
             Menu mainMenu = new Menu(_mainmenuItems);
 
-            // Displaying Application layout
-            UI.Header("Movie Library");
-            mainMenu.DisplayMenu();
+            // looping until user exits
+            while (true)
+            {
+                // Displaying Application layout
+                UI.Header("Movie Library");
+                mainMenu.DisplayMenu();
+                Console.WriteLine("\n[0] Exit");
 
+                // Prompts for and gets/validates the user's selection
+                int userSelection = Validate.Range("Please select a movie by number:", 0, mainMenu.MenuOptions.Length);
 
-            // Prompts for and gets/validates the user's selection
-            int userSelection = Validate.Range("Please select a movie by number:", 1, mainMenu.MenuOptions.Length);
-
-
+                // conditional to continue or exit the program
+                if(userSelection == 0)
+                {
+                    Console.WriteLine("\nGoodbye!");
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    // Displays the data of the chosen movie
+                    apiArray[userSelection - 1].DisplayData();
+                }
+            }
+            
+            
         }
     }
 }
