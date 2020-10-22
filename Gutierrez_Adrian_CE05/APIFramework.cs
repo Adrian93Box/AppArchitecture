@@ -17,21 +17,27 @@ namespace Gutierrez_Adrian_CE05
         protected string _jsonString;
         protected dynamic _json;
 
-        public void Connect()
+        public APIFramework(string url)
         {
+            _url = url;
+        }
+
+
+        // Getting parsed json from the api
+        public dynamic GetJSON()
+        {
+            // Using a temperary object to pull date from an api
             using (WebClient wc = new WebClient())
             {
                 // Getting the string json from the url
                 _jsonString = wc.DownloadString(_url);
 
-
                 // assigning the object to hold the parsed json taken from the json string
                 _json = JObject.Parse(_jsonString);
-
-                Console.WriteLine(_json.Title);
-
-
             }
+
+            return _json;
         }
+
     }
 }

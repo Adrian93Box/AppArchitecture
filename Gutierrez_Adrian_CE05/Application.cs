@@ -12,7 +12,7 @@ namespace Gutierrez_Adrian_CE05
         public Application()
         {
             API justiceLeagueAPI = new API("http://www.omdbapi.com/?t=Justice+LEague&apikey=b08784be");
-            justiceLeagueAPI.Connect();
+            Console.WriteLine(justiceLeagueAPI.GetTitle());
 
 
 
