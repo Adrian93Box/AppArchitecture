@@ -4,6 +4,9 @@
 // 4.3 Code Exercise: API Application
 
 
+
+// This class holds the framework for pulling API json data
+
 using System;
 using System.Net;
 using Newtonsoft.Json.Linq;
