@@ -35,14 +35,30 @@ namespace Gutierrez_Adrian_CE05
             // Using a temperary object to pull date from an api
             using (WebClient wc = new WebClient())
             {
-                // Getting the string json from the url
-                jsonString = wc.DownloadString(_url);
+                try
+                {
+                    // Getting the string json from the url
+                    jsonString = wc.DownloadString(_url);
 
-                // assigning the object to hold the parsed json taken from the json string
-                json = JObject.Parse(jsonString);
+                    // assigning the object to hold the parsed json taken from the json string
+                    json = JObject.Parse(jsonString);
+
+                    return json;
+                }
+                catch(WebException error)
+                {
+                    UI.Error("There was an error loading the url!");
+                    UI.Prompt("Press any key to continue:");
+                    Console.ReadLine();
+                    UI.Error("The program must shut down now. Please check the url assigned to <jsonString> in APIFramework");
+                    UI.Prompt("Press any key to close the program:");
+                    Console.ReadLine();
+                    Environment.Exit(0);
+                }
+
             }
 
-            return json;
+            return null;
         }
 
 
